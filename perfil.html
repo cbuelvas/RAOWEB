@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src= "js/teacherprofile.js"></script>
 <body>
 
     <div ng-app="myApp" ng-controller="teacherCtrl"> 
         <div id="teacher" >
             <h2>Profesor:</h2>
+			<img src="http://savio.utbvirtual.edu.co/user/external_render_pic.php?user=uws1&pass=uws1&wsusername=T00010915" class="center-block img-responsive img-circle" alt="perfilprofesor"></img>
             <ul>
                 <li><label>Codigo: </label>{{id}}</li>
                 <li><label>Nombres: </label>{{names}}</li>
@@ -17,29 +19,7 @@
                 <!--<li><label>Listar Cursos: </label>{{course}}</li>-->
             </ul>
         </div>
-
-    <script>
-    var app = angular.module('myApp', []);
-    app.controller('teacheCtrl', function($scope, $http) {
-      $http.get("http://104.236.31.197/teacher/T00010915?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
-      .success(function (response) {
-          console.log('epaaaaa');
-          console.log(response);
-          $scope.json = response;
-          $scope.id = $scope.json.id;
-          $scope.names = $scope.json.names;
-          $scope.lastnames = $scope.json.lastnames;
-          $scope.resources_uri = $scope.json.resources_uri;
-          $scope.type = $scope.json.type;
-          console.log($scope.type);
-          $scope.department = $scope.json.department;
-          $scope.school = $scope.json.school;
-          $scope.email = $scope.json.email;
-          
-      });
-    });
-    </script>
-
+	</div>
 </body>
 </html>
 <!--
