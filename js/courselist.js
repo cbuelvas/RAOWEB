@@ -1,6 +1,6 @@
-var app = angular.module('raoweb', []);
-app.controller('teacherCourseCtrl', function($scope, $http) {
-  $http.get(/*"http://104.236.31.197*/"http://localhost:8000/teacher/T00010915/courses?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
+var app2 = angular.module('myapp2', []);
+app2.controller('teacherCourseCtrl', function($scope, $http) {
+  $http.get("http://104.236.31.197/teacher/T00010915/courses?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
   .success(function (response) {
 	  console.log('epaaaaa');
 	  console.log(response);
@@ -14,3 +14,4 @@ app.controller('teacherCourseCtrl', function($scope, $http) {
 
   });
 });
+	
