@@ -1,6 +1,6 @@
-var app = angular.module('myApp', []);
+var app = angular.module('raoweb', []);
 app.controller('teacherCtrl', function($scope, $http) {
-  $http.get("http://104.236.31.197/teacher/T00010915?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
+  $http.get("http://localhost:8000/teacher/T00010915?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
   .success(function (response) {
 	  console.log('epaaaaa');
 	  console.log(response);
