@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <body>
 
     <div ng-app="myApp" ng-controller="customersCtrl"> 
@@ -22,25 +23,8 @@
                 </li>
             </ul>
         </div>
-
-    <script>
-    var app = angular.module('myApp', []);
-    app.controller('customersCtrl', function($scope, $http) {
-      $http.get("http://104.236.31.197/teacher/T00010915/courses?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
-      .success(function (response) {
-          console.log('epaaaaa');
-          console.log(response);
-          $scope.json = response;
-          $scope.courses = response.courses;
-          $scope.id = $scope.json.id;
-          $scope.names = $scope.json.names;
-          $scope.lastnames = $scope.json.lastnames;
-          $scope.resources_uri = $scope.json.resources_uri;
-          $scope.coursename = $scope.json.courses.subjct_name;
-          
-      });
-    });
-    </script>
-
+    </div>
+    <script src="app.js"></script>
+    <script src="js/coursesController.js"></script>
 </body>
 </html>
