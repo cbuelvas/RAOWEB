@@ -179,7 +179,7 @@
 
 var app = angular.module('app', []);
 app.controller('teacherCtrl', function($scope, $http) {
-  $http.get("http://localhost:8000/teacher/T00010915?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
+  $http.get("http://104.236.31.197/teacher/T00010915?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
   .success(function (response) {
 	  console.log('epaaaaa');
 	  console.log(response);
@@ -202,7 +202,7 @@ app.controller('teacherCtrl', function($scope, $http) {
 
 var app2 = angular.module('app2', []);
 app2.controller('teacherCourseCtrl', function($scope, $http) {
-  $http.get("http://localhost:8000/teacher/T00010915/courses?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
+  $http.get("http://104.236.31.197/teacher/T00010915/courses?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
   .success(function (response) {
 	  console.log('epaaaaa');
 	  console.log(response);
@@ -218,7 +218,7 @@ app2.controller('teacherCourseCtrl', function($scope, $http) {
 });
 	var app3 = angular.module('myapp3', []);
 app3.controller('studentsByCourseCtrl', function($scope, $http) {
-  $http.get("http://localhost:8000/course/2028-201510/students?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
+  $http.get("http://104.236.31.197/course/2028-201510/students?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS")
   .success(function (response) {
 	           console.log(response);
           $scope.json = response;
