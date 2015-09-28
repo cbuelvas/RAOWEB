@@ -154,18 +154,12 @@
 						 <div class="text-left"id="coursestudents" >
 							<h2>{{subject}} - {{nrc}}:</h2>
 							<ul>
-								
-									<li ng-repeat="s in students">
-										
-										<input ng-click="toggleSelection(s.id,s.names)" type="checkbox" name="students" ng-model="fruit.value">
-											{{s.id}}
-											{{s.names}}
-											{{s.lastnames}}
-										</input>			
-							 			
-									</li>
+								<li ng-repeat="s in students">
+									{{s.id}}
+									{{s.names}}
+									{{s.lastnames}}
+								</li>
 							</ul>
-							<button class="btn" id="enviar" ng-click="studentPost()">Enviar lista</button>
 						 </div>
 					</div>
 					<a class="btn btn-default page-scroll" href="#intro">Click Para Ir A Inicio</a>
@@ -177,21 +171,20 @@
 	
 
 	<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-	<script src="/js/lib/angular/angular-route.js"></script>
 
 	<script src= "js/Controllers/courselist.js"></script>
 	<script src= "js/Controllers/teacherprofile.js"></script>
 	<script src= "js/Controllers/studentlist.js"></script>
 	<script src="js/app.js"></script>
     <!-- jQuery -->
-    <script src="js/lib/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Scrolling Nav JavaScript -->
-    <script src="js/lib/jquery.easing.min.js"></script>
-    <script src="js/lib/scrolling-nav.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
 	
 	
 
