@@ -1,6 +1,7 @@
 var app2 = angular.module('couselistmodule', []);
 app2.controller('teacherCourseCtrl', function($scope, $http) {
-
+	
+	if(sessionStorage.getItem('user')!=""){
 	$http({
     url: "http://104.236.31.197/teacher/T00010915/courses", 
     method: "GET",
@@ -14,7 +15,11 @@ app2.controller('teacherCourseCtrl', function($scope, $http) {
 	  $scope.lastnames = $scope.json.lastnames;
 	  $scope.resources_uri = $scope.json.resources_uri;
 	  $scope.coursename = $scope.json.courses.subjct_name;
-
-  });
+	
+  	});
+	}
+	else{					
+		$location.path('/login');
+	}
 });
 	
