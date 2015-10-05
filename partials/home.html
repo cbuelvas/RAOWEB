@@ -1,127 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-
-	
-			
-
-    <title>RAOWEB</title>
-	
-
-	
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
-<body ng-app="webrao" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Inicio</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#profilesec">Perfil profesor</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#coursessec">Listar Cursos</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#studentlist">Lista de estudiantes</a>
-                    </li>
-                    <li>
-                        <a class="pull-right" href="" ng-click="logout()">Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
     <!-- Intro Section -->
     <section id="intro" class="intro-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h1>RAOWEB</h1>
-                    <a class="btn btn-default page-scroll" href="#profilesec">Click Para Bajar!</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Profile Section -->
-    <section id="profilesec" class="profile-section">
+
+<!--
+	<section id="profilesec" class="profile-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-				  	<div ng-app="myapp1"ng-controller="teacherCtrl"> 
-						<div id="teacher" >
-							
-							<ul class="text-center" center-block style="list-style-type: none">
-								<h2>Profesor:</h2>
-							<img src="http://savio.utbvirtual.edu.co/user/external_render_pic.php?user=uws1&pass=uws1&wsusername=T00010915" class="center-block img-responsive img-circle" alt="perfilprofesor"></img>
-								<li><label>{{id}} </label></li>
-								<li><label>{{names}} </label></li>
-								<li><label>{{lastnames}} </label></li>
-								<li><label>{{type}} </label></li>
-								<li><label>{{school}} </label></li>
-								<li><label>{{department}} </label></li>
-								<li><label>{{email}} </label></li>
-							<a class="btn btn-default page-scroll" href="#coursessec">Click Para Bajar</a>
-							</ul>
+			<div class="card card-container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div ng-controller="teacherCtrl"> 
+							<div id="teacher" >
+
+								<ul class="text-center" center-block style="list-style-type: none">
+									<h2>Profesor:</h2>
+								<img src="http://savio.utbvirtual.edu.co/user/external_render_pic.php?user=uws1&pass=uws1&wsusername={{username}}" class="center-block img-responsive img-circle" alt="perfilprofesor"></img>
+									<li><label>{{id}} </label></li>
+									<li><label>{{names}} </label></li>
+									<li><label>{{lastnames}} </label></li>
+									<li><label>{{type}} </label></li>
+									<li><label>{{school}} </label></li>
+									<li><label>{{department}} </label></li>
+									<li><label>{{email}} </label></li>
+
+								</ul>
+							</div>
 						</div>
+
 					</div>
-				
-                </div>
-            </div>
+				</div>
+			</div>
         </div>
     </section>
 
-	    <!-- CourseList Section -->
     <section id="coursessec" class="courselist-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-				  	 <div ng-app="myapp2"ng-controller="teacherCourseCtrl"> 
+				  	 <div ng-controller="teacherCourseCtrl"> 
 						<div class="text-left" id="teachercourses" >
 							<h2>Profesor:</h2>
 							<ul style="list-style-type: none">
@@ -140,7 +63,6 @@
 							</ul>
 						</div>
 					</div>
-					<a class="btn btn-default page-scroll" href="#studentlist">Click Para Bajar</a>
                 </div>
             </div>
         </div>
@@ -148,12 +70,11 @@
 
     
 
-    <!-- Contact Section -->
     <section id="studentlist" class="studentlist-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                     <div ng-app="myapp3" ng-controller="studentsByCourseCtrl"> 
+                     <div ng-controller="studentsByCourseCtrl"> 
 						 <div class="text-left"id="coursestudents" >
 							<h2>{{subject}} - {{nrc}}:</h2>
 							<ul>
@@ -168,43 +89,12 @@
 							 			
 									</li>
 							</ul>
-							<button class="btn" id="enviar" ng-click="studentPost()">Enviar lista</button>
 						 </div>
 					</div>
-					<a class="btn btn-default page-scroll" href="#intro">Click Para Ir A Inicio</a>
-
                 </div>
             </div>
         </div>
     </section>
 	
 
-	<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-	<script src="js/lib/angular/angular-route.js"></script>
-
-	<script src= "js/Controllers/courselist.js"></script>
-	<script src= "js/Controllers/teacherprofile.js"></script>
-	<script src= "js/Controllers/studentlist.js"></script>
-	<script src="js/app.js"></script>
-    <!-- jQuery -->
-    <script src="js/lib/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/lib/bootstrap.min.js"></script>
-
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/lib/jquery.easing.min.js"></script>
-    <script src="js/lib/scrolling-nav.js"></script>
-	
-	<!--Login -->
-	<script src="js/directives/loginDrc.js"></script>
-
-	<script src="js/Controllers/loginCtrl.js"></script>
-	<script src="js/Controllers/homeCtrl.js"></script>
-
-	<script src="js/Services/loginService.js"></script>
-	<script src="js/Services/sessionService.js"></script>	
-
-</body>
-
-</html>
+   -->

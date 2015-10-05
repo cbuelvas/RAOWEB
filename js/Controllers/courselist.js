@@ -1,4 +1,4 @@
-var app2 = angular.module('myapp2', []);
+var app2 = angular.module('couselistmodule', []);
 app2.controller('teacherCourseCtrl', function($scope, $http) {
 
 	$http({

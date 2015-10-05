@@ -7,7 +7,7 @@ JSON.stringify = function(value) {
     return r;
 };
 
-var app3 = angular.module('myapp3', []);
+var app3 = angular.module('stundetlistmodule', []);
 app3.controller('studentsByCourseCtrl', function($scope, $http) {
 	$http({
     url: "http://104.236.31.197/course/2028-201510/students", 
@@ -25,27 +25,11 @@ app3.controller('studentsByCourseCtrl', function($scope, $http) {
 		var jsonData;
 		//select students
 		$scope.selection=[];
-		function removeVal(val)
-		{
-			console.log("entro");
-			for(var i = 0; i < arr.length; i++)
-			{
-				if ($scope.selection[i] == val)
-					$scope.selection[i].splice(index);
-			}
-		}
-
-		$scope.toggleSelection = function toggleSelection(id, name, index) {
-			$("input[students*='check']").click(function() {
-				
-			if ($(this).attr('checked'))
-				$scope.selection.push({id:id,attendance:"0"});
-			else
-				removeVal(index);
-			console.log($scope.selection);
-			}
-   		)};
-
+  		$scope.toggleSelection = function toggleSelection(id, name) {
+			
+     		$scope.selection.push({id:id,attendance:"0"});
+			console.log(jsonData);
+   		};
 		var _json_stringify = JSON.stringify;
 
 		$scope.studentPost = function studentPost(){
@@ -57,7 +41,6 @@ app3.controller('studentsByCourseCtrl', function($scope, $http) {
 					$scope.response = data
 				  })
 			  }
-
 			
 			*/
 			/*

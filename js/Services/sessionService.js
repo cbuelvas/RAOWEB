@@ -9,6 +9,7 @@ app.factory('sessionService', ['$http', function($http){
 			return sessionStorage.getItem(key);
 		},
 		destroy:function(key){
+			console.log("Destroy-key: ",key);
 			return sessionStorage.removeItem(key);
 		}
 	};

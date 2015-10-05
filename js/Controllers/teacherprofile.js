@@ -1,9 +1,9 @@
-var app = angular.module('myapp1', []);
-app.controller('teacherCtrl', function($scope, $http) {
+var app = angular.module('teacherprofile', []);
+app.controller('teacherCtrl', ['$scope','loginService','$http', function($scope,loginService, $http){
   	$http({
     url: "http://104.236.31.197/teacher/T00010915", 
     method: "GET",
-    params: {username: "T00010915", token:"GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS"}
+    data: $.param( {username: "T00010915", token:"GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS"})
  	}).success(function (response) {
 	 // console.log('epaaaaa');
 	  console.log(response);
@@ -16,6 +16,6 @@ app.controller('teacherCtrl', function($scope, $http) {
 	  $scope.department = $scope.json.department;
 	  $scope.school = $scope.json.school;
 	  $scope.email = $scope.json.email;
-
+		
   });
-});
+}]);

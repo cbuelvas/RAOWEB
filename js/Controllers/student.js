@@ -2,9 +2,9 @@ var app = angular.module('raoweb', []);
 app.controller('customersCtrl', function($scope, $http) {
   
   $http({
-    url: "http://104.236.31.197/student/t00031178", 
+    url: "http://104.236.31.197/student/"+sessionStorage.getItem('user')+"", 
     method: "GET",
-    params: {username: "T00010915", token:"GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS"}
+    params: {username: +sessionStorage.getItem('user'), token:+sessionStorage.getItem('token')}
  	}).success(function (response) {
 	  console.log('epaaaaa');
 	  console.log(response);
