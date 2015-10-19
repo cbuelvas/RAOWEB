@@ -1,0 +1,36 @@
+<!--
+Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
+-->
+<div class="login-page">
+	<div class="row">
+		<div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+        	<img src="images/flat-avatar.png" class="user-avatar" />
+			<h1>RAOWEB <small>Registro de asistencias </small></h1>
+				<div id="loginbox"class="jumbotron col s12 m12  btn-rounded">
+					<form class=" col s12 m12 form-signin"role="form" name="form1">
+						<div class="row">
+							<div class="input-field col s12 m12">
+								<div class="form-group">
+										<i class="mdi-action-account-circle prefix"></i>
+										<input id="icon_prefix" for="inputlg" type="text" ng-model="user.username"  class="validate" required>
+										<label for="icon_prefix">Username</label>
+								</div>
+							</div>
+
+
+							<div class="input-field col s12 m12">
+								<div class="form-group">
+										<i class="fa fa-unlock-alt prefix"></i>
+										<input id="icon_password" for="inputlg" type="password"class="validate" ng-model="user.password" required>
+										<label for="icon_password">Password</label>
+								</div>
+							</div>
+ 							<button id="logbtn" class="btn waves-effect waves-light btn-rounded center" type="submit" name="action" ng-click="login(user)" ng-disabled="form1.$invalid">Sign in<i class="fa fa-sign-in right"></i></button>
+						</div>
+						
+					</form>
+			</div>
+		</div>	
+	</div>
+
+</div>

@@ -1,0 +1,99 @@
+    <!-- Intro Section -->
+   
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>RAOWEB</h1>
+                </div>
+            </div>
+        </div>
+   
+
+<!--
+	<section id="profilesec" class="profile-section">
+        <div class="container">
+			<div class="card card-container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div ng-controller="teacherCtrl"> 
+							<div id="teacher" >
+
+								<ul class="text-center" center-block style="list-style-type: none">
+									<h2>Profesor:</h2>
+								<img src="http://savio.utbvirtual.edu.co/user/external_render_pic.php?user=uws1&pass=uws1&wsusername={{username}}" class="center-block img-responsive img-circle" alt="perfilprofesor"></img>
+									<li><label>{{id}} </label></li>
+									<li><label>{{names}} </label></li>
+									<li><label>{{lastnames}} </label></li>
+									<li><label>{{type}} </label></li>
+									<li><label>{{school}} </label></li>
+									<li><label>{{department}} </label></li>
+									<li><label>{{email}} </label></li>
+
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+        </div>
+    </section>
+
+    <section id="coursessec" class="courselist-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+				  	 <div ng-controller="teacherCourseCtrl"> 
+						<div class="text-left" id="teachercourses" >
+							<h2>Profesor:</h2>
+							<ul style="list-style-type: none">
+								<li><label>Codigo: </label>{{id}}</li>
+								<li><label>Nombres: </label>{{names}}</li>
+								<li><label>Apellidos: </label>{{lastnames}}</li>
+							</ul>
+							<h2>Cursos:</h2>
+							<ul>
+								<li ng-repeat="c in courses">
+									{{c.subject_name}}
+									{{c.section}}
+									{{c.nrc}}
+									{{c.resource_uri}}
+								</li>
+							</ul>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="studentlist" class="studentlist-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                     <div ng-controller="studentsByCourseCtrl"> 
+						 <div class="text-left"id="coursestudents" >
+							<h2>{{subject}} - {{nrc}}:</h2>
+							<ul>
+								
+									<li ng-repeat="s in students">
+										
+										<input ng-click="toggleSelection(s.id,s.names, $index)" class = "list-group-item"type="checkbox" name="students{{$index+1}}" id="student" >
+											{{s.id}}
+											{{s.names}}
+											{{s.lastnames}}
+										</input>			
+							 			
+									</li>
+							</ul>
+						 </div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+
+   -->

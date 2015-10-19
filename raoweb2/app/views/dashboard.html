@@ -1,0 +1,29 @@
+<div class="dashboard-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+
+       <div class="text-center">
+		   <h2 class="brand">RAOWEB<hr><small><script>sessionStorage.getItem('user');</script></small></h2>
+        
+		   <a ui-sref="profile"  ng-class="{active: $state.includes('overview')}"><img src="http://savio.utbvirtual.edu.co/user/external_render_pic.php?user=uws1&pass=uws1&wsusername={{id}}" class="img-circle user-avatar"/></a><br />
+        <a ui-sref="logout" ng-click="logout()" class="btn btn-white btn-outline btn-rounded btn-m">Logout</a>
+      </div>
+
+      <ul class="nav nav-sidebar">
+        
+					<li>
+						<a ui-sref="courselist"   ng-class="{active: $state.includes('courselist')}">Listar Cursos</a>
+					</li>
+					<li>
+						<a ui-sref="studentlist"   ng-class="{active: $state.includes('studentlist')}">Lista de estudiantes</a>
+					</li>
+
+      </ul>
+
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
+    </div>
+  </div>
+</div>
+</div>

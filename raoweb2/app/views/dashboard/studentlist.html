@@ -1,0 +1,31 @@
+<div>
+
+	<h2>Lista de estudiantes  <small>Aqui se mostrara lista de estudiantes de cada curso</small></h2>
+	<div class="jumbotron">
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                     <div ng-controller="studentsByCourseCtrl"> 
+						 <div class="text-left"id="coursestudents" >
+							<h2>{{subject}} - {{nrc}}:</h2>
+							<ul>
+								
+									<li ng-repeat="s in students">
+										
+										<input ng-click="toggleSelection(s.id,s.names, $index)" class = "list-group-item"type="checkbox" name="students{{$index+1}}" id="student" >
+											{{s.id}}
+											{{s.names}}
+											{{s.lastnames}}
+										</input>			
+							 			
+									</li>
+							</ul>
+							<button class="btn" id="enviar" ng-click="studentPost()">Enviar lista</button>
+						 </div>
+					</div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
