@@ -1,5 +1,5 @@
 'use strict';
-angular.module('yapp').controller('teacherCourseCtrl', function($scope, $location, $http) {
+angular.module('yapp').controller('teacherCourseCtrl', ['$scope', 'passDataService',function($scope, passDataService,$location, $http) {
 	
 	
 	$http({
@@ -17,10 +17,17 @@ angular.module('yapp').controller('teacherCourseCtrl', function($scope, $locatio
 	  $scope.coursename = $scope.json.courses.subjct_name;
 	
   	});
+	
+	$scope.showcourse = function showcourse(id) {
+			console.log(id);
+			passDataService.course(id);
+   		};
+	
 	console.log($scope.username);
 	if(sessionStorage.getItem('user')==$scope.username){					
 		$location.path('/login');
 	}
-});
+	
+}]);
 	
 	

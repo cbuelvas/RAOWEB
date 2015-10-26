@@ -13,12 +13,14 @@
 					</ul>
 					<h2>Cursos:</h2>
 					<ul>
-						<li ng-repeat="c in courses">
-							{{c.subject_name}}
-							{{c.section}}
-							{{c.nrc}}
-							{{c.resource_uri}}
-						</li>
+						<div ng-repeat="c in courses">
+							<li ng-click="showcourse(c.nrc)" >
+								{{c.subject_name}}
+								{{c.section}}
+								{{c.nrc}}
+								{{c.resource_uri}}
+							</li>
+						</div>
 					</ul>
 				</div>
 			</div>

@@ -63,10 +63,11 @@ var yapp = angular
             templateUrl: 'views/dashboard/studentlist.html',
 			controller: 'studentsByCourseCtrl'
           })
-          .state('statistics', {
-            url: '/statistics',
+          .state('courseStatistics', {
+            url: '/courseStatistics',
             parent: 'dashboard',
-            templateUrl: 'views/dashboard/statistics.html'
+            templateUrl: 'views/dashboard/courseStatistics.html',
+			controller: 'courseStatisticsController'
           })
           .state('logout', {
             url: '/logout',
