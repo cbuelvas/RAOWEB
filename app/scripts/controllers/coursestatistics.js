@@ -1,5 +1,5 @@
 angular.module('yapp')
-  .controller('courseStatisticsController', function($scope, $location,$http) {
+  .controller('courseStatisticsCtlr', function($scope, $location,$http) {
 	
 	var students_names = new Array();  
 	var came = new Array(); 

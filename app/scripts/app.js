@@ -57,17 +57,38 @@ var yapp = angular
             templateUrl: 'views/dashboard/courselist.html',
 			controller: 'teacherCourseCtrl'
           })
+          .state('courseview', {
+			url: '/courseview',
+			parent: 'dashboard',
+			views: {
+				"":{
+					templateUrl: 'views/dashboard/courseview.html',
+					controller: 'courseViewCtrl'
+				},
+				"chart":{
+					templateUrl: 'views/dashboard/courseStatistics.html',
+					controller: 'courseStatisticsCtlr'
+				}
+				
+			}
+          })
           .state('studentlist', {
             url: '/studentlist',
             parent: 'dashboard',
             templateUrl: 'views/dashboard/studentlist.html',
 			controller: 'studentsByCourseCtrl'
           })
-          .state('courseStatistics', {
-            url: '/courseStatistics',
+          .state('studentview', {
+            url: '/studentview',
+            parent: 'dashboard',
+            templateUrl: 'views/dashboard/studentview.html',
+			controller: 'studentViewCtrl'
+          })
+          .state('coursestatistics', {
+            url: '/coursestatistics',
             parent: 'dashboard',
             templateUrl: 'views/dashboard/courseStatistics.html',
-			controller: 'courseStatisticsController'
+			controller: 'courseStatisticsCtlr'
           })
           .state('logout', {
             url: '/logout',
@@ -84,6 +105,10 @@ var yapp = angular
   });
 
 
+yapp.service('nrc', function NRC(){
+	var nrc = this;
+	nrc.txt = "default";
+});
 	
 yapp.controller('logoutctrl', ['$scope','loginService', function($scope,loginService){
 	$scope.txt='Page Home';

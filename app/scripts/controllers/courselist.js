@@ -1,9 +1,9 @@
 'use strict';
-angular.module('yapp').controller('teacherCourseCtrl', ['$scope', 'passDataService',function($scope, passDataService,$location, $http) {
-	
-	
+angular.module('yapp')
+.controller('teacherCourseCtrl', ['$scope', '$location','$http','passDataService','$rootScope',function($scope, $location, $http, passDataService,$rootScope) {
+
 	$http({
-    url: "http://104.236.31.197/teacher/T00010915/courses", 
+    url: "http://104.236.31.197/teacher/"+sessionStorage.getItem('user')+"/courses", 
     method: "GET",
     data: $.param( {username: sessionStorage.getItem('user'), token:sessionStorage.getItem('token')})
  }).success(function (response) {
@@ -17,17 +17,13 @@ angular.module('yapp').controller('teacherCourseCtrl', ['$scope', 'passDataServi
 	  $scope.coursename = $scope.json.courses.subjct_name;
 	
   	});
+	$scope.send = function (nrc){
+			console.log(nrc);
+           	passDataService.sendData(nrc);
+         };
 	
-	$scope.showcourse = function showcourse(id) {
-			console.log(id);
-			passDataService.course(id);
-   		};
-	
-	console.log($scope.username);
 	if(sessionStorage.getItem('user')==$scope.username){					
 		$location.path('/login');
 	}
-	
 }]);
-	
 	

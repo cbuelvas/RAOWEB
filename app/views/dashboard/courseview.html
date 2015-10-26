@@ -1,0 +1,26 @@
+<div >
+
+	<h2>Ver Curso  <small>Aqui se mostrara el curso seleccinado</small></h2>
+	<div class="jumbotron">
+		<div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+					<div ng-controller="courseViewCtrl"> 
+						<div id="courseview" >
+							<h2>{{subject_name}} {{nrc}}</h2>
+								<p><label>Periodo:{{period}}</label></p>
+								<p><label>Periodo:{{period}}</label></p>
+								<p><label>Periodo:{{period}}</label></p>
+								<p><label>Periodo:{{period}}</label></p>
+						</div>
+					</div>
+				</div>		
+			</div>
+
+		</div>
+		
+		<div ui-view="chart"></div>
+	</div>
+</div>

@@ -12,16 +12,14 @@
 						<li><label>Apellidos: </label>{{lastnames}}</li>
 					</ul>
 					<h2>Cursos:</h2>
-					<ul>
-						<div ng-repeat="c in courses">
-							<li ng-click="showcourse(c.nrc)" >
-								{{c.subject_name}}
-								{{c.section}}
-								{{c.nrc}}
-								{{c.resource_uri}}
-							</li>
+						<div ng-repeat="c in courses" >
+      							<div class="collection">
+									<a class="collection-item" ng-model='id' ng-click="send(c.nrc)" ui-sref="courseview">
+										<span class="card-title">{{c.subject_name}}</span>
+											<div id="nrc">{{c.nrc}}</div>	
+									</a>
+								</div>
 						</div>
-					</ul>
 				</div>
 			</div>
 		</div>
