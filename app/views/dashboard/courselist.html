@@ -5,21 +5,15 @@
 		<div class="container">
 			<div ng-controller="teacherCourseCtrl"> 
 				<div id="teachercourses" >
-					<h2>Profesor:</h2>
-					<ul>
-						<li><label>Codigo: </label>{{id}}</li>
-						<li><label>Nombres: </label>{{names}}</li>
-						<li><label>Apellidos: </label>{{lastnames}}</li>
-					</ul>
 					<h2>Cursos:</h2>
-						<div ng-repeat="c in courses" >
-      							<div class="collection">
-									<a class="collection-item" ng-model='id' ng-click="send(c.nrc)" ui-sref="courseview">
-										<span class="card-title">{{c.subject_name}}</span>
-											<div id="nrc">{{c.nrc}}</div>	
-									</a>
-								</div>
+					<div ng-repeat="c in courses" >
+						<div class="collection">
+							<a class="collection-item" ng-model='id' ui-sref="dashboard.courseview({course : c.nrc})">
+								<span class="card-title">{{c.subject_name}}</span>
+									<div id="nrc">{{c.nrc}}</div>	
+							</a>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>

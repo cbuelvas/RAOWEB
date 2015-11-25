@@ -9,6 +9,8 @@
  */
 angular.module('yapp')
   .controller('DashboardCtrl', function($scope, $state) {
+	  $(".button-collapse").sideNav();
+
 	$scope.id = sessionStorage.getItem('user');
     $scope.$state = $state;
 

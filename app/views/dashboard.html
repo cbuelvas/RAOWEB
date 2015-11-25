@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
-
+		  
        <div class="text-center">
 		   <h2 class="brand">RAOWEB<hr></h2>
         
@@ -11,18 +11,22 @@
       </div>
 
       <ul class="nav nav-sidebar">
+		  
 			<li>
-				<a ui-sref="courselist"   ng-class="{active: $state.includes('courselist')}">Listar Cursos</a>
+				<a ui-sref="home"   ng-class="{active: $state.includes('home')}"><i class="fa fa-home"></i>
+ Home</a>
+			</li>
+			<li>
+				<a ui-sref="dashboard.courselist"   ng-class="{active: $state.includes('courselist')}"><i class="fa fa-list-alt"></i> Listar Cursos</a>
 			</li>
 			<li>
 				<a ui-sref="studentlist"   ng-class="{active: $state.includes('studentlist')}">Lista de estudiantes</a>
 			</li>
 			<li>
-				<a ui-sref="coursestatistics"   ng-class="{active: $state.includes('coursestatistics')}">Estadistica del curso</a>
+				<a href="https://github.com/cbuelvas/RAOWEB/wiki"   ><i class="fa fa-file-text-o"></i>
+ Documentacion</a>
 			</li>
-		  	<li>
-				<a ui-sref="courseview"   ng-class="{active: $state.includes('courseview')}">Vista del curso</a>
-			</li>
+
       </ul>
 
     </div>

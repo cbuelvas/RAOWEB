@@ -5,7 +5,7 @@ yapp.factory('loginService', function($http, $location,  sessionService){
 	return{
 		login:function(data,scope){
 			scope.data = {};
-			var $promise=$http.post('http://asistencia.utbweb.co/token',data).then(function(msg){
+			var $promise=$http.post('http://104.236.31.197/token',data).then(function(msg){
 				var uid=msg.data;
 				if(uid){
 					sessionService.set('user',data.username);
@@ -13,7 +13,7 @@ yapp.factory('loginService', function($http, $location,  sessionService){
 				sesionName = data.username;
 					sesionToken  = uid;
 				console.log(sesionName);
-				$location.path('/dashboard');
+				$location.path('/home');
 
 				}	       			   
 			}).catch(function(){scope.msgtxt='Datos del profesor incorrectos';

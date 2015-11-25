@@ -1,26 +1,47 @@
-<div >
+<div>
+	<div ng-controller="courseViewCtrl">
+		<div id="courseview">
+			<h2 style="text-align:center">{{subject_name}} {{section}}</h2>
+			<div class="jumbotron">
+				<div class="container">	
+					<div class="row">
+						<div class="col s12 card-panel ">
+							<h3>Estudiantes del curso</h3>
+								
+								
+								<table>
+									<thead>
+									  <tr>
+										  <th data-field="id">ID</th>
+										  <th data-field="name">Nombre</th>
+										  <th data-field="lastname">Apellido</th>
+										  <th data-field="program">Programa</th>
+									  </tr>
+									</thead>
 
-	<h2>Ver Curso  <small>Aqui se mostrara el curso seleccinado</small></h2>
-	<div class="jumbotron">
-		<div class="container">
-
-
-            <div class="row">
-                <div class="col-lg-12">
-					<div ng-controller="courseViewCtrl"> 
-						<div id="courseview" >
-							<h2>{{subject_name}} {{nrc}}</h2>
-								<p><label>Periodo:{{period}}</label></p>
-								<p><label>Periodo:{{period}}</label></p>
-								<p><label>Periodo:{{period}}</label></p>
-								<p><label>Periodo:{{period}}</label></p>
+									<tbody ng-repeat="s in students">
+									  <tr>
+										<td>{{s.id}}</td>
+										<td>{{s.names}}</td>
+										<td>{{s.lastnames}}</td>
+										<td>{{s.program}}</td>
+				    					</tr>
+									</tbody>
+								</table>
+							
+							
+						</div>
+									<!--<a class="" ng-click="send(nrc)" ui-sref="dashboard.courseview.coursestatistics({course : nrc})">Ver estadisticas</a>-->
+									<!--<a class=""  ui-sref="dashboard.courseview.coursestatistics({coursestatistics : nrc})">Ver estadisticas</a>-->
+						
+						
+						<div class="col s12 card-panel" >
+							<h3>Estadisticas de asistencias</h3>
+							<div id="container"></div>
 						</div>
 					</div>
-				</div>		
+				</div>
 			</div>
-
 		</div>
-		
-		<div ui-view="chart"></div>
 	</div>
 </div>

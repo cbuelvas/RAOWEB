@@ -19,9 +19,7 @@ angular.module('yapp')
 	};
 	
 /*    $scope.submit = function() {
-
       $location.path('/dashboard');
-
       return false;
     }
 */
