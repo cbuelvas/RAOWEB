@@ -8,16 +8,17 @@ JSON.stringify = function(value) {
 };*/
 
 angular.module('yapp')
-  .controller('studentsByCourseCtrl', function($scope,$element, $location,$http) {
+  .controller('studentsByCourseCtrl', function($scope,$element, $location,$http,passDataService, $stateParams) {
+	$scope.course = $stateParams.course;
 	$http({
-    url: "http://asistencia.utbweb.co/course/2028-201510/students", 
+    url: "http://asistencia.utbweb.co/course/"+$scope.course+"/students", 
+    //url: "http://asistencia.utbweb.co/course/2028-201510/students", 
     method: "GET",
 	data: $.param( {username: sessionStorage.getItem('user'), token:sessionStorage.getItem('token')})
 
     //params: {username: "T00010915", token:"GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS"}
  	}).success(function (response) {
 		
-		$scope.status=[{cat: 'Undefined', id:4},{cat: 'Came', id:0},{cat: 'Not Came', id:1},{cat: 'Late', id:2},{cat: 'Left Soon', id:3}];
 		console.log(response);
 		$scope.json = response;
 		$scope.nrc = $scope.json.nrc;
@@ -30,76 +31,81 @@ angular.module('yapp')
 		//console.log("size of students",size);
 		//array que permitira seleccionar los estudiantes y asignarlo en el boton de la lista de estudiantes.
 		$scope.attendance = [];
+		$scope.algo=[];
+		console.log($scope.nrc)
+
+    	$scope.status = [{Title: 'Undefined', ID:4},{Title: 'Came', ID:0},{Title: 'Not Came', ID:1},{Title: 'Late', ID:2},{Title: 'Left Soon', ID:3}];		
 		for (var i =0; i<size; i++){
 			$scope.attendance.push({id:$scope.students[i].id, stat: $scope.status[0].cat});
 			//$scope.attendance.push({id:$scope.students[i].id, stat: $scope.status[0].cat,attendance:$scope.status[0].id});
 		}
 
+		
 		console.log($scope.attendance);
 		var jsonData;
 		//select students
-		$scope.selection=[];
-		
 		
 
 
+		$scope.selected = [];
+		for (var i =0; i<size; i++){
+			$scope.selected.push({id:$scope.students[i].id, attendance:4});
+		}
+/*		angular.forEach($scope.students, function (a) {
+			
+			$scope.selected.push({
+				id: undefined
+			});
+		});*/
+		
+		
+		var toggleSelection = function toggleSelection(id,stat,what) {
+			if (what == false){
+				console.log("entro: ", $scope.selected);
+				switch(stat){
+					case 4:
+						
+						$scope.algo.push({id:id,attendance:"4"});
 
-		$scope.toggleSelection = function toggleSelection(id,stat,ind) {
-			console.log(ind);
-			switch(stat){
-				case 'Left Soon':
-					$scope.attendance[ind].stat = "Undefined";
-					$scope.attendance[ind].id = 4;
-					$scope.selection.push({id:id,attendance:"4"});
-					console.log($scope.attendance);
+						break;
+					case 0:
+						$scope.algo.push({id:id,attendance:"0"});
+						break;
+					case 1:
 
-					break;
-				case 'Undefined':
-					$scope.attendance[ind].stat = "Came";
-					$scope.attendance[ind].id = 0;
-					document.getElementById(ind).text("Came");
-					console.log(document.getElementById(ind).innerHTML);
-					$scope.selection.push({id:id,attendance:"0"});
-					console.log($scope.attendance);
-					break;
-				case 'Came':
-					$scope.attendance[ind].stat = "Not Came";
-					$scope.attendance[ind].id = 1;
-					$scope.selection.push({id:id,attendance:"1"});
-					console.log($scope.attendance);
+						$scope.algo.push({id:id,attendance:"1"});
 
-					break;
-				case 'Not Came':
-					$scope.attendance[ind].stat = "Late";
-					$scope.attendance[ind].id = 2;
-					$scope.selection.push({id:id,attendance:"2"});
-					console.log($scope.attendance);
-					break;
-				case 'Late':
-					$scope.attendance[ind].stat = "Left Soon";
-					$scope.attendance[ind].id = 3;
-					$scope.selection.push({id:id,attendance:"3"});
-					console.log($scope.attendance);
-					break;
+						break;
+					case 2:
+						$scope.algo.push({id:id,attendance:"2"});
+						break;
+					case 3:
+						$scope.algo.push({id:id,attendance:"3"});
+						break;
 
+				}
 			}
-
-			//console.log($scope.selection);
+			
 		};
 
 
-
-		
-		
-		
-		
-		if(sessionStorage.getItem('user')===$scope.username){					
-		$location.path('/login');
-	}
-		var _json_stringify = JSON.stringify;
-
 		$scope.studentPost = function studentPost(){
-			var sendPost = JSON.stringify({nrc:$scope.nrc , estudiantes:$scope.selection});
+						console.log($scope.selected);
+//			if (stat == true){
+			for (var i =0; i<size; i++){
+				if ($scope.selected[i].attendance)
+				{	
+					$scope.selected[i].id =$scope.students[i].id;
+					$scope.selected[i].attendance=$scope.selected[i].attendance;
+				}
+				else
+				{	
+					$scope.selected[i].id =$scope.students[i].id;
+					$scope.selected[i].attendance=4;
+				}
+				
+			}
+			var sendPost = JSON.stringify({nrc:$scope.nrc , estudiantes:$scope.selected});
 			console.log(sendPost);
 			/*$scope.postData = function () {
 				$http.post('http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS', {nrc:$scope.nrc,estudiantes:jsonData}).success(
@@ -113,14 +119,28 @@ angular.module('yapp')
 			var res = $http.post('http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS', sendPost);*/
 			var request = $http({
                     method: "post",
-                    url: 'http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+                    //url: 'http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+                    url: 'http://asistencia.utbweb.co/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
                     data: sendPost
                 });
+			$location.path('/dashboard/courselist');
+//			}
+//			else{console.log("nada");}
 		};
+
+		
+		
+		
+		
+		if(sessionStorage.getItem('user')===$scope.username){					
+		$location.path('/login');
+	}
+		var _json_stringify = JSON.stringify;
+
 				
 			var request = $http({
                     method: "GET",
-                    url: 'http://104.236.31.197/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
+                    url: 'http://asistencia.utbweb.co/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
                 }).success(function (response) {
 		console.log(response);
 		});

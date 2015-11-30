@@ -51,6 +51,17 @@ yapp.config(function ($stateProvider, $urlRouterProvider) {
 
 			}
 		})
+		.state('dashboard.studentlist', {
+			url: '/studentlist?course',
+			views: {
+				'': {
+					templateUrl: 'views/dashboard/studentlist.html',
+					controller: 'studentsByCourseCtrl'
+				},
+				
+
+			}
+		})
 		/*.state('dashboard.courseview.coursestatistics', {
 			url: '/coursestatistics?course',
 			templateUrl: 'views/dashboard/courseStatistics.html',
@@ -72,12 +83,7 @@ yapp.config(function ($stateProvider, $urlRouterProvider) {
 			templateUrl: 'views/dashboard/courselist.html',
 			controller: 'teacherCourseCtrl'
 		})
-		.state('studentlist', {
-			url: '/studentlist',
-			parent: 'dashboard',
-			templateUrl: 'views/dashboard/studentlist.html',
-			controller: 'studentsByCourseCtrl'
-		})
+		
 		.state('studentview', {
 			url: '/studentview',
 			parent: 'dashboard',

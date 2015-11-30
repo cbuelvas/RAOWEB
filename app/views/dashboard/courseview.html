@@ -7,34 +7,25 @@
 					<div class="row">
 						<div class="col s12 card-panel ">
 							<h3>Estudiantes del curso</h3>
-								
-								
-								<table>
-									<thead>
-									  <tr>
-										  <th data-field="id">ID</th>
-										  <th data-field="name">Nombre</th>
-										  <th data-field="lastname">Apellido</th>
-										  <th data-field="program">Programa</th>
-									  </tr>
-									</thead>
-
-									<tbody ng-repeat="s in students">
-									  <tr>
-										<td>{{s.id}}</td>
-										<td>{{s.names}}</td>
-										<td>{{s.lastnames}}</td>
-										<td>{{s.program}}</td>
-				    					</tr>
-									</tbody>
-								</table>
-							
-							
+							<table>
+								<thead>
+								  <tr>
+									  <th data-field="id">ID</th>
+									  <th data-field="name">Nombre</th>
+									  <th data-field="lastname">Apellido</th>
+									  <th data-field="program">Programa</th>
+								  </tr>
+								</thead>
+								<tbody ng-repeat="s in students">
+								  <tr>
+									<td>{{s.id}}</td>
+									<td>{{s.names}}</td>
+									<td>{{s.lastnames}}</td>
+									<td>{{s.program}}</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-									<!--<a class="" ng-click="send(nrc)" ui-sref="dashboard.courseview.coursestatistics({course : nrc})">Ver estadisticas</a>-->
-									<!--<a class=""  ui-sref="dashboard.courseview.coursestatistics({coursestatistics : nrc})">Ver estadisticas</a>-->
-						
-						
 						<div class="col s12 card-panel" >
 							<h3>Estadisticas de asistencias</h3>
 							<div id="container"></div>

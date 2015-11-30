@@ -1,3 +1,4 @@
+
 <div>
 
 	<h2>Lista de estudiantes  <small>Aqui se mostrara lista de estudiantes de cada curso</small></h2>
@@ -27,19 +28,18 @@
 										<td>{{s.program}}</td>
 										<td>	 
 										<!--hacer que cambie el estastus del boton (no necesita enviar nada). Cambiar el color de fondo del boton y para el segundo cambio hay que comprobar que no esta repetida la informacion-->
-											
+										<!--	
 											<div ng-repeat="a in attendance">
 												<span  ng-show="a.id === s.id">
 													<button id="{{$index}}"ng-model="$index" class="waves-effect waves-light btn" ng-click="toggleSelection(s.id,attendance[$index].stat, $index)" >Undefined</button><style></style>
 												</span>
 							 				</div>
-									
+									-->
+											<select class="browser-default" ng-model="selected[$index].attendance " ng-options="item.ID as item.Title for item in status"  ng-change="toggleSelection(s.id,selected[$index].attendance, false)" />
 										</td>
 										</tr>
 									</tbody>
 								</table>
-							 		
-							 <button class="btn" id="enviar" ng-click="studentPost()">Enviar lista</button>
 							 
 
 				 <!--<form>
@@ -58,9 +58,9 @@
 							<button class="btn" id="enviar" ng-click="studentPost()">Enviar lista</button>-->
 						 </div>
 					</div>
-
                 </div>
             </div>
+			<button  class="btn right" id="enviar" ng-click="studentPost()">Enviar lista</button>
         </div>
 	</div>
 </div>
