@@ -14,7 +14,7 @@ angular.module('yapp')
 //		var nrc =  passDataService.getData(); 
 //		$scope.nrc = nrc;		console.log("nrc courseview ",$scope.nrc);
 		$http({
-		url: "http://104.236.31.197/course/"+$scope.course+"/attendance?", 
+		url: "https://utbweb.co/course/"+$scope.course+"/attendance?", 
 		method: "GET",
 		data: $.param( {username: sessionStorage.getItem('user'), token:sessionStorage.getItem('token')})
 		}).success(function (response) {

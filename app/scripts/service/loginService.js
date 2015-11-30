@@ -5,7 +5,7 @@ yapp.factory('loginService', function($http, $location,  sessionService){
 	return{
 		login:function(data,scope){
 			scope.data = {};
-			var $promise=$http.post('http://104.236.31.197/token',data).then(function(msg){
+			var $promise=$http.post('https://utbweb.co/token',data).then(function(msg){
 				var uid=msg.data;
 				if(uid){
 					sessionService.set('user',data.username);
@@ -13,6 +13,8 @@ yapp.factory('loginService', function($http, $location,  sessionService){
 				sesionName = data.username;
 					sesionToken  = uid;
 				console.log(sesionName);
+				scope.msgtxt='Datos del profesor correctos';
+				Materialize.toast(scope.msgtxt, 5000,'rounded');
 				$location.path('/home');
 
 				}	       			   
@@ -27,7 +29,7 @@ yapp.factory('loginService', function($http, $location,  sessionService){
 		},
 		
 		islogged:function(){
-			var $checkSessionServer=$http.post('http://asistencia.utbweb.co/token');
+			var $checkSessionServer=$http.post('https://utbweb.co/token');
 			return $checkSessionServer;
 		
 		/*	if(sessionService.get('user')) return true;

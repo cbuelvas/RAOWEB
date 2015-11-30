@@ -1,13 +1,14 @@
 
 <div>
 
-	<h2>Lista de estudiantes  <small>Aqui se mostrara lista de estudiantes de cada curso</small></h2>
 	<div class="jumbotron">
 		<div class="container">
 			<div ng-controller="studentsByCourseCtrl"> 
 				<div class="row">
 					<div class="col-lg-12">
 						 <div id="coursestudents" >
+							 	<a ui-sref="dashboard.courselist"><i class="fa fa-arrow-circle-left  fa-2x"></i></a>
+	
 							<h2>{{subject}} - {{nrc}}:</h2>
 							<table>
 								<thead>

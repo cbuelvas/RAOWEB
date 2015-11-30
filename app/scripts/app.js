@@ -70,7 +70,8 @@ yapp.config(function ($stateProvider, $urlRouterProvider) {
 		.state('home', {
 			url: '/home',
 			parent: 'dashboard',
-			templateUrl: 'views/dashboard/home.html'
+			templateUrl: 'views/dashboard/home.html',
+			controller: 'teacherCourseCtrl'
 		})
 		.state('profile', {
 			url: '/profile',

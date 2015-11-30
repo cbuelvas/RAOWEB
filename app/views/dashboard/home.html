@@ -1,13 +1,38 @@
 <div>
-	<a ui-sref="reports" class="pull-right btn btn-success btn-outline btn-rounded">Reports</a>
-	<h2>Overview <small>Why is Ani Theme so awesome?</small></h2>
+	<h2>Pantalla de bienvenida</h2>
 	<div class="jumbotron">
 		<div class="container">
-			<h1>Welcome!</h1>
-			I don't want to bloat this Ani Theme Free Edition AngularJS Admin theme with a lot of plugins. To install plugins we have bower. Let's keep it real clean!<br /><br />
-			<p>
-				<a class="btn btn-primary btn-lg btn-outline btn-rounded">Learn more</a>
-			</p>
+			<div>
+
+				<h2>Lista de cursos  <small>Aqui se mostrara la lista de cursos de cada profesor</small></h2>
+				<div class="jumbotron">
+					<div class="container">
+						<div ng-controller="teacherCourseCtrl"> 
+							<div id="teachercourses" >
+								<h2>Cursos:</h2>
+								<div ng-repeat="c in courses" >
+									<div class="row">
+										<div class="col s8">
+											<div class="collection">
+												<div>
+													<a class="collection-item" ng-model='id' ui-sref="dashboard.courseview({course : c.nrc})">
+														<span class="card-title">{{c.subject_name}}</span>
+															<div id="nrc">{{c.nrc}}</div>	
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="col s4 ">
+											<a ui-sref="dashboard.studentlist({course : c.nrc})"><span class="btn-large">Tomar Asistencia</span></a><div><span></span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+

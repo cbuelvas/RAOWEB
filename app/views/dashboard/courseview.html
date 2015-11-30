@@ -1,10 +1,13 @@
-<div>
+ <div>
 	<div ng-controller="courseViewCtrl">
 		<div id="courseview">
-			<h2 style="text-align:center">{{subject_name}} {{section}}</h2>
 			<div class="jumbotron">
 				<div class="container">	
+					<a ui-sref="dashboard.courselist"><i class="fa fa-arrow-circle-left  fa-2x"></i></a>
+					<h2 >{{subject_name}} {{section}}</h2>
+
 					<div class="row">
+					
 						<div class="col s12 card-panel ">
 							<h3>Estudiantes del curso</h3>
 							<table>
@@ -26,11 +29,20 @@
 								</tbody>
 							</table>
 						</div>
+
 						<div class="col s12 card-panel" >
 							<h3>Estadisticas de asistencias</h3>
 							<div id="container"></div>
 						</div>
+												
+					<div>
+						
+
+						<a ui-sref="dashboard.studentlist({course : course})"><span class="right btn-large">Tomar Asistencia</span></a>
+						
 					</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

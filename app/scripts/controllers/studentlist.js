@@ -11,7 +11,7 @@ angular.module('yapp')
   .controller('studentsByCourseCtrl', function($scope,$element, $location,$http,passDataService, $stateParams) {
 	$scope.course = $stateParams.course;
 	$http({
-    url: "http://asistencia.utbweb.co/course/"+$scope.course+"/students", 
+    url: "https://utbweb.co/course/"+$scope.course+"/students", 
     //url: "http://asistencia.utbweb.co/course/2028-201510/students", 
     method: "GET",
 	data: $.param( {username: sessionStorage.getItem('user'), token:sessionStorage.getItem('token')})
@@ -106,6 +106,8 @@ angular.module('yapp')
 				
 			}
 			var sendPost = JSON.stringify({nrc:$scope.nrc , estudiantes:$scope.selected});
+			$scope.msgtxt='Registro realizado';
+			Materialize.toast($scope.msgtxt, 5000,'rounded');
 			console.log(sendPost);
 			/*$scope.postData = function () {
 				$http.post('http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS', {nrc:$scope.nrc,estudiantes:jsonData}).success(
@@ -119,11 +121,10 @@ angular.module('yapp')
 			var res = $http.post('http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS', sendPost);*/
 			var request = $http({
                     method: "post",
-                    //url: 'http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
-                    url: ' http://localhost:8000/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+                    url: 'https://utbweb.co/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+                   // url: ' http://localhost:8000/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
                     data: sendPost
                 });
-			$location.path('/dashboard/courselist');
 //			}
 //			else{console.log("nada");}
 		};
@@ -140,7 +141,7 @@ angular.module('yapp')
 				
 			var request = $http({
                     method: "GET",
-                    url: 'http://104.236.31.197/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
+                    url: 'https://utbweb.co/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
                 }).success(function (response) {
 		console.log(response);
 		});
