@@ -40,6 +40,10 @@ angular.module('yapp')
 			//$scope.attendance.push({id:$scope.students[i].id, stat: $scope.status[0].cat,attendance:$scope.status[0].id});
 		}
 
+		$scope.selected = [];
+		for (var i =0; i<size; i++){
+			$scope.selected.push({id:$scope.students[i].id, attendance:4});
+		}
 		
 		console.log($scope.attendance);
 		var jsonData;
@@ -47,10 +51,6 @@ angular.module('yapp')
 		
 
 
-		$scope.selected = [];
-		for (var i =0; i<size; i++){
-			$scope.selected.push({id:$scope.students[i].id, attendance:4});
-		}
 /*		angular.forEach($scope.students, function (a) {
 			
 			$scope.selected.push({
@@ -120,7 +120,7 @@ angular.module('yapp')
 			var request = $http({
                     method: "post",
                     //url: 'http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
-                    url: 'http://asistencia.utbweb.co/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+                    url: ' http://localhost:8000/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
                     data: sendPost
                 });
 			$location.path('/dashboard/courselist');
@@ -140,7 +140,7 @@ angular.module('yapp')
 				
 			var request = $http({
                     method: "GET",
-                    url: 'http://asistencia.utbweb.co/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
+                    url: 'http://104.236.31.197/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
                 }).success(function (response) {
 		console.log(response);
 		});

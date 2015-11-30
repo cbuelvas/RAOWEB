@@ -4,63 +4,40 @@
 	<h2>Lista de estudiantes  <small>Aqui se mostrara lista de estudiantes de cada curso</small></h2>
 	<div class="jumbotron">
 		<div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                     <div ng-controller="studentsByCourseCtrl"> 
+			<div ng-controller="studentsByCourseCtrl"> 
+				<div class="row">
+					<div class="col-lg-12">
 						 <div id="coursestudents" >
 							<h2>{{subject}} - {{nrc}}:</h2>
-								<table>
-									<thead>
-									  <tr>
-										  <th data-field="id">ID</th>
-										  <th data-field="name">Nombre</th>
-										  <th data-field="lastname">Apellido</th>
-										  <th data-field="program">Programa</th>
-										  <th data-field="action">Acción</th>
-									  </tr>
-									</thead>
+							<table>
+								<thead>
+								  <tr>
+									  <th data-field="id">ID</th>
+									  <th data-field="name">Nombre</th>
+									  <th data-field="lastname">Apellido</th>
+									  <th data-field="program">Programa</th>
+									  <th data-field="action">Acción</th>
+								  </tr>
+								</thead>
 
-									<tbody ng-repeat="s in students">
-									  <tr>
-										<td>{{s.id}}</td>
-										<td>{{s.names}}</td>
-										<td>{{s.lastnames}}</td>
-										<td>{{s.program}}</td>
-										<td>	 
-										<!--hacer que cambie el estastus del boton (no necesita enviar nada). Cambiar el color de fondo del boton y para el segundo cambio hay que comprobar que no esta repetida la informacion-->
-										<!--	
-											<div ng-repeat="a in attendance">
-												<span  ng-show="a.id === s.id">
-													<button id="{{$index}}"ng-model="$index" class="waves-effect waves-light btn" ng-click="toggleSelection(s.id,attendance[$index].stat, $index)" >Undefined</button><style></style>
-												</span>
-							 				</div>
-									-->
-											<select class="browser-default" ng-model="selected[$index].attendance " ng-options="item.ID as item.Title for item in status"  ng-change="toggleSelection(s.id,selected[$index].attendance, false)" />
-										</td>
-										</tr>
-									</tbody>
-								</table>
-							 
+								<tbody ng-repeat="s in students">
+								  <tr>
+									<td>{{s.id}}</td>
+									<td>{{s.names}}</td>
+									<td>{{s.lastnames}}</td>
+									<td>{{s.program}}</td>
+									<td>	 
 
-				 <!--<form>
-							
-										 <p ng-repeat="s in students">									
-										<input ng-click="toggleSelection(s.id,s.names)" type="checkbox" name="students"  />
-										<!--<input ng-click="toggleSelection(s.id,s.names, $index)" class = "list-group-item" type="checkbox" name="students{{$index+1}}" id="student" >
-										
-      
-											<label>{{s.id}}
-											{{s.names}}
-											{{s.lastnames}}</label>
-	</p>										
-		
-						 </form>
-							<button class="btn" id="enviar" ng-click="studentPost()">Enviar lista</button>-->
+										<select class="browser-default" ng-model="selected[$index].attendance " ng-options="item.ID as item.Title for item in status"  />
+									</td>
+									</tr>
+								</tbody>
+							</table>
 						 </div>
 					</div>
                 </div>
+				<button  class="btn right" id="enviar" ng-click="studentPost()">Enviar lista</button>
             </div>
-			<button  class="btn right" id="enviar" ng-click="studentPost()">Enviar lista</button>
         </div>
 	</div>
 </div>
