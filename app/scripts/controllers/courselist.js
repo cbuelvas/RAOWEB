@@ -3,7 +3,8 @@ angular.module('yapp')
 .controller('teacherCourseCtrl', ['$scope', '$location','$http','passDataService','$rootScope',function($scope, $location, $http, passDataService,$rootScope) {
 
 	$http({
-    url: "https://utbweb.co/teacher/"+sessionStorage.getItem('user')+"/courses", 
+//    url: "https://utbweb.co/teacher/"+sessionStorage.getItem('user')+"/courses", 
+    url: "http://localhost:8000/teacher/"+sessionStorage.getItem('user')+"/courses", 
     method: "GET",
     data: $.param( {username: sessionStorage.getItem('user'), token:sessionStorage.getItem('token')})
  }).success(function (response) {

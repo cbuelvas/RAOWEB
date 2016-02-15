@@ -11,7 +11,8 @@ angular.module('yapp')
   .controller('studentsByCourseCtrl', function($scope,$element, $location,$http,passDataService, $stateParams) {
 	$scope.course = $stateParams.course;
 	$http({
-    url: "https://utbweb.co/course/"+$scope.course+"/students", 
+//    url: "https://utbweb.co/course/"+$scope.course+"/students", 
+    url: "http://localhost:8000/course/"+$scope.course+"/students", 
     //url: "http://asistencia.utbweb.co/course/2028-201510/students", 
     method: "GET",
 	data: $.param( {username: sessionStorage.getItem('user'), token:sessionStorage.getItem('token')})
@@ -121,8 +122,8 @@ angular.module('yapp')
 			var res = $http.post('http://104.236.31.197/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS', sendPost);*/
 			var request = $http({
                     method: "post",
-                    url: 'https://utbweb.co/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
-                   // url: ' http://localhost:8000/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+//                    url: 'https://utbweb.co/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
+                    url: ' http://localhost:8000/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS',
                     data: sendPost
                 });
 //			}
@@ -141,7 +142,8 @@ angular.module('yapp')
 				
 			var request = $http({
                     method: "GET",
-                    url: 'https://utbweb.co/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
+                    url: 'http://localhost:8000/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
+//                    url: 'https://utbweb.co/course/2028-201510/attendance?username=T00010915&token=GZmd0e0wBDca8lfE5jAYADTFgcXRinHHmpKAXUGS'
                 }).success(function (response) {
 		console.log(response);
 		});
