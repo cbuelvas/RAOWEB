@@ -66,22 +66,22 @@ angular.module('yapp')
 				switch(stat){
 					case 4:
 						
-						$scope.algo.push({id:id,attendance:"4"});
+						$scope.algo.push({ID:id,ATTENDANCE:"4"});
 
 						break;
 					case 0:
-						$scope.algo.push({id:id,attendance:"0"});
+						$scope.algo.push({ID:id,ATTENDANCE:"0"});
 						break;
 					case 1:
 
-						$scope.algo.push({id:id,attendance:"1"});
+						$scope.algo.push({ID:id,ATTENDANCE:"1"});
 
 						break;
 					case 2:
-						$scope.algo.push({id:id,attendance:"2"});
+						$scope.algo.push({ID:id,ATTENDANCE:"2"});
 						break;
 					case 3:
-						$scope.algo.push({id:id,attendance:"3"});
+						$scope.algo.push({ID:id,ATTENDANCE:"3"});
 						break;
 
 				}
@@ -106,7 +106,7 @@ angular.module('yapp')
 				}
 				
 			}
-			var sendPost = JSON.stringify({nrc:$scope.nrc , estudiantes:$scope.selected});
+			var sendPost = JSON.stringify({NRC:$scope.nrc , ESTUDIANTES:$scope.selected});
 			$scope.msgtxt='Registro realizado';
 			Materialize.toast($scope.msgtxt, 5000,'rounded');
 			console.log(sendPost);
